@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <title>input</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    var ok = "";
+    var isok;
+    var Input = React.createClass({
+      getInitialState(){
+        return {name:"undefined",age:"undefined",isok:false}
+      },
+      handle(event){
+        this.setState({name:event.target.value});
+      },
+      handle1(event){
+        if(this.state.name == event.target.value && this.state.name){
+          this.setState({age:event.target.value,isok:true});
+        }else {
+          this.setState({age:event.target.value,isok:false});
+        }
+        // this.setState({age:event.target.value});
+      },
+      render(){
+        var name = this.state.name;
+        var age = this.state.age;
+  //第一种方法下面这行判断两个input的内容是否相同，会显示对号
+        // name == age && (name != "undefined" && name != "") ? ok = <span className='glyphicon glyphicon-ok'></span> : ok = "";
+
+  //第二种在handle1里面判断，然后改变状态,这里判断状态的值,但是有bug，因为判断是写在第二个事件里面，第一个事件改变不会判断。
+        this.state.isok ? ok = <span className='glyphicon glyphicon-ok'></span> : ok = "";
+
+        return (
+          <div>
+          <h1>name:{this.state.name}</h1>
+          <h1>age:{this.state.age}</h1>
+          姓名:<input type="text" onChange={this.handle}/>
+          <br/>
+          年龄:<input type="password" onChange={this.handle1}/>
+          {ok}
+          </div>
+        )
+      }
+    })
+
+    ReactDOM.render(<Input />,document.getElementById("root"));
+  </script>
+</body>
+</html>

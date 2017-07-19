@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>复合组件</title>
+  <style>
+  h1 {
+    color:red;
+  }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    var First = React.createClass({
+      render:function(){
+        return (
+          <div>
+            <Two name={this.props.name}/>
+            <Three site={this.props.site}/>
+            {/*调用了其他两个组件*/}
+
+          </div>
+        )
+      }
+    });
+    var Two = React.createClass({
+      render:function(){
+        return <h1>{this.props.name}</h1>
+      }
+    });
+    var Three = React.createClass({
+      render:function(){
+        return <a href={this.props.site}>{this.props.site}</a>
+      }
+    });
+    ReactDOM.render(<First name="zhaohong" site="http://mango.cnstu.top"/>,document.getElementById("root"));
+
+  </script>
+</body>
+</html>

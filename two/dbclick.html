@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>doubleclick</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      var Zhao = React.createClass({
+        getInitialState(){
+          return {value:0};
+        },
+        handle(){
+          if(this.state.value == 4){
+            this.setState({value:0});
+          }else {
+            this.setState({value:this.state.value + 1});
+          }
+        },
+        render(){
+          var col = this.state.value;
+          console.log(col);
+          var color;
+          if(col == 0){
+            color = {color:"black"};
+          }else if(col == 1){
+            color = {color:"red"};
+          }else if(col == 2){
+            color = {color:"green"};
+          }else if(col == 3){
+            color = {color:"blue"}
+          }else if(col == 4){
+            color = {color:"purple"}
+          }
+          return (
+            <div>
+              <h1 onClick={this.handle} style={color}>{this.props.title}</h1>
+            </div>
+          )
+        }
+      })
+
+      ReactDOM.render(<Zhao title="让我来随便说几句话" />,document.getElementById("root"));
+
+    </script>
+</body>
+</html>

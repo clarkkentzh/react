@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>props</title>
+  <style>
+  h1 {
+    color:red;
+  }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+  /**********组件的属性******************/
+    //组件首字母必须大写，有且只有一个元素，但是可以有包含的子元素
+  //name:React.PropTypes.number.isRequired 方法告诉react这个name必须是number类型
+  //number可以改成string,就变为字符串类型
+ // React.PropTypes.array,  数组
+ // React.PropTypes.bool,　　布尔
+ // React.PropTypes.func,　　函数
+ // React.PropTypes.number,　数字
+ // React.PropTypes.object,　对象
+ // React.PropTypes.string,　字符串
+ // React.PropTypes.symbol,　符号
+
+    // var Com = React.createClass({
+    //   propTypes: {
+    //       name: React.PropTypes.number.isRequired,
+    //   },
+    //   render:function(){
+    //     return(
+    //     <div>
+    //     <h1>name:{this.props.name}</h1>
+    //     <h1>age:{this.props.age}</h1>
+    //     </div>
+    //   )
+    //   }
+    // });
+    // var data = 123;
+    // ReactDOM.render(<Com name={data} age="24" />,document.getElementById("root"));
+
+
+    /****组件的子元素*****/
+        //
+        // var Coms = React.createClass({
+        //   render:function(){
+        //     return (
+        //       <ol>
+        //       {
+        //         React.Children.map(this.props.children,(name) => (<li>{name}</li>))
+        //       }
+        //       </ol>
+        //     )
+        //   }
+        // });
+        // ReactDOM.render(
+        //   <Coms>
+        //   <span>hello</span>
+        //   <span>world</span>
+        //   </Coms>
+        // ,document.getElementById("root"));
+
+
+
+  /**********getDefaulteProps设置组件的默认属性值******************/
+        var Coms = React.createClass({
+          getDefaultProps:function(){
+            return {
+              title : "HTML5"
+            };
+          },
+          render:function(){
+            return (<div><h1>{this.props.title}</h1>
+              <h1>{this.props.name}</h1></div>)
+          }
+        })
+        ReactDOM.render(<Coms name="zhaohong"/>,document.getElementById("root"));
+
+  </script>
+</body>
+</html>

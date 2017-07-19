@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <!-- 首先引用以上三个cdn -->
+  <style>
+  h1 {
+    color:red;
+  }
+  </style>
+  <title>react基本格式</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    //此处的type必须写为text/babel
+
+
+      /********基本格式*******/
+      //这是类似方法，内部两个参数
+      // ReactDOM.render(
+      //   <h1>你好，北京！！！where are you now！</h1>,
+      //   document.getElementById("root")
+      // );
+
+
+　　　/****Com变量的首字母必须大写*****/
+    // var Com = React.createClass({
+    //   render:function(){
+    //     return <h1>你好,北京！</h1>
+    //   }
+    // });
+    // ReactDOM.render(<Com />,document.getElementById("root"));
+
+
+    /*******************/
+    var str = ["Zhaohong","Zhangshaohan"];
+    var Coms = React.createClass({
+      render:function(){
+        return(
+          <div>
+          {
+            str.map(function(name){
+              return　<h1 key={name.toString()}>name:{name}</h1>
+            })
+          }
+          </div>
+        )
+      }
+    })
+    ReactDOM.render(<Coms />,document.getElementById("root"));
+    </script>
+</body>
+</html>

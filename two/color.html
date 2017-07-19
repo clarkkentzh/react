@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>变颜色</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+      var Zhao = React.createClass({
+        getInitialState(){
+          return {col:"black"}
+        },
+        red(){
+          this.setState({col:"red"});
+        },
+        orange(){
+          this.setState({col:"orange"});
+        },
+        yellow(){
+          this.setState({col:"yellow"});
+        },
+        green(){
+          this.setState({col:"green"});
+        },
+        cyan(){
+          this.setState({col:"cyan"});
+        },
+        blue(){
+          this.setState({col:"blue"});
+        },
+        purple(){
+          this.setState({col:"purple"});
+        },
+        black(){
+          this.setState({col:"black"});
+        },
+        render(){
+          var colors = {color:this.state.col};
+          return (
+            <div>
+              <h1 style={colors}>{this.props.title}</h1>
+              <button onClick={this.black}>黑色</button>
+              <button onClick={this.red}>红色</button>
+              <button onClick={this.orange}>橙色</button>
+              <button onClick={this.yellow}>黄色</button>
+              <button onClick={this.green}>绿色</button>
+              <button onClick={this.cyan}>青色</button>
+              <button onClick={this.blue}>蓝色</button>
+              <button onClick={this.purple}>紫色</button>
+            </div>
+          )
+        }
+      })
+      ReactDOM.render(<Zhao title="让我随便说几句话" />,document.getElementById("root"));
+    </script>
+</body>
+</html>

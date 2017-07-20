@@ -23,21 +23,21 @@
         this.setState({name:event.target.value});
       },
       handle1(event){
-        if(this.state.name == event.target.value && this.state.name){
-          this.setState({age:event.target.value,isok:true});
-        }else {
-          this.setState({age:event.target.value,isok:false});
-        }
-        // this.setState({age:event.target.value});
+        // if(this.state.name == event.target.value && this.state.name){
+        //   this.setState({age:event.target.value,isok:true});
+        // }else {
+        //   this.setState({age:event.target.value,isok:false});
+        // }
+        this.setState({age:event.target.value});
       },
       render(){
         var name = this.state.name;
         var age = this.state.age;
   //第一种方法下面这行判断两个input的内容是否相同，会显示对号
-        // name == age && (name != "undefined" && name != "") ? ok = <span className='glyphicon glyphicon-ok'></span> : ok = "";
+        name == age && (name != "undefined" && name != "") ? ok = <span className='glyphicon glyphicon-ok'></span> : ok = "";
 
   //第二种在handle1里面判断，然后改变状态,这里判断状态的值,但是有bug，因为判断是写在第二个事件里面，第一个事件改变不会判断。
-        this.state.isok ? ok = <span className='glyphicon glyphicon-ok'></span> : ok = "";
+        // this.state.isok ? ok = <span className='glyphicon glyphicon-ok'></span> : ok = "";
 
         return (
           <div>

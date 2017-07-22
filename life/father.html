@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class Head extends React.Component{
+      constructor(props){
+        super(props);
+      }
+      render(){
+        return (
+          <h1>{this.props.head}</h1>
+        )
+      }
+    }
+    class Body extends React.Component{
+      constructor(props){
+        super(props);
+      }
+      render(){
+        return (
+          <h2>{this.props.body}</h2>
+        )
+      }
+    }
+    class Foot extends React.Component{
+      constructor(props){
+        super(props);
+      }
+      render(){
+        return (
+          <h1>{this.props.foot}</h1>
+        )
+      }
+    }
+    class Demo extends React.Component{
+      constructor(props){
+        super(props)
+      }
+      render(){
+        return (
+          <div>
+          <Head head={this.props.head}></Head>
+          <Body body={this.props.body}></Body>
+          <Foot foot={this.props.foot}></Foot>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<Demo head="我是head" body="我是body" foot="我是foot"/>,document.getElementById("root"));
+  </script>
+</body>
+</html>

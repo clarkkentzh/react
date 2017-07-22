@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>表单</title>
+  <style>
+  #root {
+    margin:50px;
+  }
+  </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+      var ok ="";
+      var Zhao = React.createClass({
+        getInitialState(){
+          return{value:false};
+        },
+        handle(event){
+          event.preventDefault();
+          var str = this.refs.name.value;
+          var str1 = this.refs.passwd.value;
+          if(str1 == this.props.passwd && str == this.props.name){
+            this.setState({value:!this.state.value});
+          }
+        },
+        render(){
+          this.state.value ? ok = <span className="glyphicon glyphicon-ok"></span> : ok = "";
+          return(
+            <form action="" onSubmit={this.handle}>
+            账号：<input type="text" ref="name"/>
+            <br/><br/>
+            密码：<input type="password" ref="passwd"/>
+            {ok}
+            <br/><br/>
+            <button type="submit">提交</button>
+            </form>
+          )
+        }
+      })
+      ReactDOM.render(<Zhao name="zhaohong" passwd="123456"/>,document.getElementById("root"));
+    </script>
+</body>
+</html>

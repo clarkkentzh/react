@@ -18,10 +18,9 @@
           return {value:0};
         },
         handle(){
+          this.setState({value:this.state.value + 1});
           if(this.state.value == 4){
             this.setState({value:0});
-          }else {
-            this.setState({value:this.state.value + 1});
           }
         },
         render(){

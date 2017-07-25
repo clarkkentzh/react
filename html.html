@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+  <title>ajax</title>
+</head>
+<body>
+    <ul id="uls"></ul>
+    <button id="btn">点击</button>
+    <script type="text/javascript">
+    $("#btn").click(function(){
+
+      // $.ajax({
+      //   url:"http://192.168.1.201:3000/api/userlist",
+      //   method: 'get'
+      // }).done(function(data, textStatus, jqXHR) {
+      //   console.log(data);
+      // }).fail(function(jqXHR, textStatus, errorThrown) {
+      //   console.log(textStatus);
+      // });
+      $.get("http://192.168.1.201:3000/api/userlist",function(data){
+        console.log(data);
+        for(var i = 0, lens = data.length;i < lens;i++){
+          $("#uls").append($("<li>").text(data[i]));
+        }
+      })
+    })
+    </script>
+</body>
+</html>

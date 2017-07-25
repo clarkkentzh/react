@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>模块化组件</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class Zhao extends React.Component{
+        render(){
+          return (
+            <div>
+            {this.props.children}
+            </div>
+          )
+        }
+      }
+      Zhao.propTypes = {
+        children:React.PropTypes.element.isRequired
+      }
+      ReactDOM.render(
+        <Zhao>
+        <one>one  </one>
+        <two>two  </two>
+        </Zhao>,document.getElementById("root"));
+        
+    </script>
+</body>
+</html>

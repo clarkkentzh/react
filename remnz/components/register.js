@@ -58,11 +58,19 @@ class Zhao extends React.Component{
           <FormControl.Feedback />
         </FormGroup>
 
+        <FormGroup controlId="passwd2" validationState={inputs}>
+          <ControlLabel>repassword:</ControlLabel>
+          <FormControl type="text" onChange={this.handle3.bind(this)} placeholder="text" />
+          <FormControl.Feedback />
+        </FormGroup>
+
         <ButtonToolbar>
           <Button
             type="submit" bsStyle="primary" bsSize="large" disabled={result}><Glyphicon glyph="star" />OK</Button>
         </ButtonToolbar>
       </form>
+      <br/>
+      <a href="/">返回首页</a>
     </div>
     )
   }
@@ -70,5 +78,5 @@ class Zhao extends React.Component{
 
 ReactDOM.render(
   <Zhao />,
-  document.getElementById("three")
+  document.getElementById("two")
 );

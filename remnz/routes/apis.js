@@ -9,18 +9,28 @@ router.get("/",function(req,res){
 
 router.route("/userlist")
 .get(function(req,res){
-  db.user.find({},function(err,data){
+  login.user.find({},function(err,data){
+    console.log("====",data);
     res.json(data);
   })
 })
-router.route("/login")
+
+router.route("/register")
 .post(function(req,res){
   login.user.find({},function(err,data){
     console.log(req.body);
     var m = new login.user(req.body);
     m.save(function(err,data){
-      res.json({result:"OK"})
+      // res.json({result:"OK"})
+      res.redirect
     })
   })
 })
+.put(function(req,res){
+  res.json({
+    id:123,
+    score:54
+  })
+})
+
 module.exports = router;

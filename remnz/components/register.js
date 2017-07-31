@@ -29,32 +29,32 @@ class Zhao extends React.Component{
     }
   }
   handle(event){
-    event.preventDefault();
-    let datas = {
-      username:name,
-      password:passwd
-    };
-    $.post("/api/register",datas,(data) => {
-      var ok1 = data.result;
-      this.setState({oks:ok1})
-    })
+    // event.preventDefault();
+    // let datas = {
+    //   username:name,
+    //   password:passwd
+    // };
+    // $.post("/api/register",datas,(data) => {
+    //   var ok1 = data.result;
+    //   this.setState({oks:ok1})
+    // })
   }
   render(){
     var result = this.state.result;
     var inputs = this.state.inputs;
     return (
       <div>
-      <h1>{this.state.oks}</h1>
-      <form onSubmit={this.handle.bind(this)}>
+      {/*<h1>{this.state.oks}</h1>*/}
+      <form onSubmit={this.handle.bind(this)} action="/api/register" method="post">
         <FormGroup controlId="name">
           <ControlLabel>name:</ControlLabel>
-          <FormControl type="text" onChange={this.handle1.bind(this)} placeholder="text" />
+          <FormControl type="text" name="username" onChange={this.handle1.bind(this)} placeholder="text" />
           <FormControl.Feedback />
         </FormGroup>
 
         <FormGroup controlId="passwd1" validationState={inputs}>
           <ControlLabel>password:</ControlLabel>
-          <FormControl type="text" onChange={this.handle2.bind(this)} placeholder="text" />
+          <FormControl type="text" name="password" onChange={this.handle2.bind(this)} placeholder="text" />
           <FormControl.Feedback />
         </FormGroup>
 

@@ -37,29 +37,29 @@ class Zhao extends React.Component{
     }
   }
   componentWillMount(){
-    // $.get("/api/userlist",(result) => {
-    //   this.setState({
-    //     result:result
-    //   })
-    // });
-    //
+    $.get("/api/userlist",(result) => {
+      this.setState({
+        result:result
+      })
+    });
 
-  //豆瓣api，put和delete用下面的方式发送请求
-    $.ajax({
-      method:"put",
-      async:false,
-      // url:"https://api.douban.com/v2/movie/coming_soon",
-      url:"/api/register",
 
-  //下面是浏览模式，jsonp是跨服务器，本地服务器不用
-      // dataType:"jsonp",
-      success:function(data){
-        console.log(data);
-      },
-      error:function(err){
-        alert("err");
-      }
-    })
+  // 豆瓣api，put和delete用下面的方式发送请求
+  //   $.ajax({
+  //     method:"put",
+  //     async:false,
+  //     // url:"https://api.douban.com/v2/movie/coming_soon",
+  //     url:"/api/register",
+  //
+  // //下面是浏览模式，jsonp是跨服务器，本地服务器不用
+  //     // dataType:"jsonp",
+  //     success:function(data){
+  //       console.log(data);
+  //     },
+  //     error:function(err){
+  //       alert("err");
+  //     }
+  //   })
   }
   render(){
     console.log("+++++++++++++++++",this.state.result);
